@@ -3,9 +3,20 @@
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
+    [matMenuTriggerFor]="menu"
   >
     <mat-icon>menu</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateToHomePage()">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-menu-item (click)="navigateToAdminPage()">
+      <mat-icon>settings</mat-icon>
+      <span>Admin</span>
+    </button>
+  </mat-menu>
   <span>Quotes</span>
   <span class="example-spacer"></span>
   <button
@@ -23,3 +34,17 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
+
+<header>
+  <nav class="p-2">
+    <ul class="sub-nav-list">
+      <li>Love</li>
+      <li>Religion</li>
+      <li>Job</li>
+      <li>Family</li>
+      <li>Friends</li>
+      <li>Marriage</li>
+      <li>Others</li>
+    </ul>
+  </nav>
+</header>

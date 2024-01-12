@@ -1,3 +1,9 @@
+.main-header {
+  background-color: #d33a2c;
+  display: grid;
+  grid-template-columns: min-content min-content minmax(100px, 100%);
+  column-gap: 10px;
+}
 .example-spacer {
   flex: 1 1 auto;
 }
@@ -27,4 +33,17 @@
 
 .sub-nav-list > li:hover {
   border: 1px solid #ee857b;
+}
+
+.search-input {
+  background-repeat: no-repeat;
+  background-size: 22px auto;
+  background-position: 15px 45%;
+  padding-left: 50px;
+  padding-right: 15px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: transparent;
 }

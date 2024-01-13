@@ -1,9 +1,40 @@
 <header class="p-4 main-header">
-  <h1 class="w-10 h-6">
+  <h1 class="w-10 h-6 cursor-pointer">
     <img src="assets/logo.jpg" alt="" />
   </h1>
 
-  <nav></nav>
+  <nav class="flex items-center main-nav">
+    <ul class="flex gap-4 main-nav-list">
+      <li>Quotes</li>
+      <li>Stories</li>
+      <li>Jokes</li>
+      <li>Memes</li>
+      <li>Puzzles</li>
+      <li>Riddle</li>
+      <li>
+        <button (click)="toggleMoreButton()" class="flex gap-1">
+          {{ isMoreButtonClicked ? "Less" : "More" }}
+          <mat-icon>
+            {{ isMoreButtonClicked ? "unfold_less" : "apps" }}</mat-icon
+          >
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <nav
+    class="flex items-center justify-center main-nav-mobile"
+    *ngIf="isMoreButtonClicked"
+  >
+    <ul class="gap-4 main-nav-list-mobile">
+      <li>Quotes</li>
+      <li>Stories</li>
+      <li>Jokes</li>
+      <li>Memes</li>
+      <li>Puzzles</li>
+      <li>Riddle</li>
+    </ul>
+  </nav>
 
   <div class="search-input-wrapper">
     <input

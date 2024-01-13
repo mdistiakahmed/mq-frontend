@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   imageUrl = 'assets/search.svg';
+  isMoreButtonClicked = false;
   constructor(private router: Router) {}
 
   navigateToHomePage() {
@@ -16,5 +17,9 @@ export class HeaderComponent {
 
   navigateToAdminPage() {
     this.router.navigate(['/admin']);
+  }
+
+  toggleMoreButton() {
+    this.isMoreButtonClicked = !this.isMoreButtonClicked;
   }
 }

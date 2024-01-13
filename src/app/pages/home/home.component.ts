@@ -76,4 +76,13 @@ export class HomeComponent {
       text: 'Genius is one percent inspiration and ninety-nine percent perspiration.',
     },
   ];
+
+  getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  getRandomBackgroundImage(): string {
+    const randomNumber = this.getRandomNumber(1, 5);
+    return `url(assets/background_${randomNumber}.jpg)`;
+  }
 }

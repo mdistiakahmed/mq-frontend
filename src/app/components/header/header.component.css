@@ -37,7 +37,7 @@
   color: white;
   font-size: medium;
   font-weight: bold;
-  font-family: cursive;
+  font-family: "Inconsolata", monospace;
   border-radius: 10px;
 }
 
@@ -48,6 +48,7 @@
 
 .main-nav-list > li:last-child {
   background-color: #b0382f;
+  display: none;
 }
 
 .main-nav-list > li:last-child:hover {
@@ -102,11 +103,11 @@
   }
 
   .main-nav-list-mobile > li {
+    font-family: "Inconsolata", monospace;
     padding: 10px;
     color: white;
     font-size: medium;
     font-weight: bold;
-    font-family: cursive;
     border-radius: 10px;
     background-color: #bd3428; /* Adjust the background color as needed */
   }

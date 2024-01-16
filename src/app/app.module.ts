@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, AdminComponent, HomeComponent],
@@ -25,7 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatMenuModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

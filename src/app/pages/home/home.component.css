@@ -1,12 +1,35 @@
 :host {
   font-family: "Inter", sans-serif;
 }
-.example-card {
+.quote-card {
   max-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(25, 28, 33, 0.9),
+    0 6px 20px 0 rgba(25, 26, 38, 0.9);
 }
 
 .quote {
-  font-family: "Dancing Script", cursive;
+  font-family: "Salsa", cursive;
   font-size: 24px;
   color: white;
+}
+
+.quote-author {
+  font-family: "Salsa", cursive;
+  font-size: 20px;
+  color: white;
+  align-self: self-end;
+}
+
+.short-details {
+  margin-top: 10px;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.short-details-author {
+  font-family: "Dancing Script", cursive;
+  margin: 0px !important;
+  color: #fc9797;
 }

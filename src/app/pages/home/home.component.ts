@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -83,14 +84,16 @@ export class HomeComponent {
   }
 
   getRandomBackgroundImage(): string {
-    const randomNumber = this.getRandomNumber(1, 5);
+    let randomNumber = this.getRandomNumber(1, 5);
+    randomNumber = 1;
     return `url(assets/background_${randomNumber}.jpg)`;
   }
 
   originalDate: string = '2023-11-26T00:00:00.000Z';
   formattedDate!: string;
 
-  constructor(private datePipe: DatePipe) {}
+  constructor(private datePipe: DatePipe) //private http: HttpClient
+  {}
 
   ngOnInit() {
     this.formattedDate = this.formatDate(this.originalDate);

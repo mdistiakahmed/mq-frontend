@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +16,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, AdminComponent, HomeComponent],
@@ -25,8 +29,9 @@ import { DatePipe } from '@angular/common';
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
+    HttpClientModule,
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, provideClientHydration()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

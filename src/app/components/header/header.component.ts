@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,10 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   imageUrl = 'assets/search.svg';
   isMoreButtonClicked = false;
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient // private http: HttpClient
+  ) {}
 
   navigateToHomePage() {
     this.router.navigate(['/']);
@@ -21,5 +26,12 @@ export class HeaderComponent {
 
   toggleMoreButton() {
     this.isMoreButtonClicked = !this.isMoreButtonClicked;
+  }
+
+  async callApi() {
+    const x = await firstValueFrom(
+      this.http.get<any>('http://localhost:4000/api/hello', {})
+    );
+    console.log(x);
   }
 }

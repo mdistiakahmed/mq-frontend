@@ -18,9 +18,9 @@ export function app(): express.Express {
   server.set('views', browserDistFolder);
 
   // Example Express Rest API endpoints
-  server.get('/api/**', (req, res) => {
+  server.get('/api/hello', (req, res) => {
     console.log('hello world');
-    res.send('I am success');
+    res.status(200).json({ result: 'I am success' });
   });
   // Serve static files from /browser
   server.get(

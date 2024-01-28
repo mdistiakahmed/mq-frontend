@@ -20,6 +20,7 @@ export function app(): express.Express {
   // Example Express Rest API endpoints
   server.get('/api/**', (req, res) => {
     console.log('hello world');
+    res.send('I am success');
   });
   // Serve static files from /browser
   server.get(

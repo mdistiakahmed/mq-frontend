@@ -1,0 +1,19 @@
+.desktop-view {
+  display: block;
+}
+
+.mobile-view {
+  display: none;
+  padding: 1.15rem;
+}
+
+@media (max-width: 767px) {
+  .desktop-view {
+    display: none;
+  }
+
+  .mobile-view {
+    display: flex;
+    flex-direction: column;
+  }
+}

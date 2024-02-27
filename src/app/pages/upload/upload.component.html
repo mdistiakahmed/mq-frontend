@@ -1,0 +1,128 @@
+<div class="page-container">
+  <div>
+    <p-toast></p-toast>
+    <p-fileUpload
+      #fileUpload
+      url="https://www.primefaces.org/cdn/api/upload.php"
+      [customUpload]="true"
+      [maxFileSize]="maxFileUploadSize"
+      (uploadHandler)="onUpload($event)"
+      (onSelect)="onSelectFile($event)"
+      (onClear)="onClearFile()"
+      (onRemove)="onClearFile()"
+      accept="image/*"
+    >
+      <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">
+            {{ file.name }} - {{ file.size }} bytes
+          </li>
+        </ul>
+      </ng-template>
+    </p-fileUpload>
+  </div>
+
+  <div class="flex gap-4 items-center justify-between">
+    <span class="text-xl font-bold">Category</span>
+    <p-dropdown
+      [options]="categoryList"
+      [(ngModel)]="selectedCategory"
+      optionLabel="name"
+      [filter]="true"
+      filterBy="name"
+      [showClear]="true"
+      placeholder="Select a category"
+      [style]="{ width: '300px' }"
+    >
+      <ng-template pTemplate="selectedItem" let-selectedOption>
+        <div class="flex align-items-center gap-2">
+          <div>{{ selectedCategory.name }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-category pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <div>{{ category.name }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+    <div>
+      <p-button
+        label="Add New Category"
+        (onClick)="showCreateNewCategoryModal()"
+      ></p-button>
+    </div>
+  </div>
+
+  <div class="flex gap-4 items-center justify-between">
+    <span class="text-xl font-bold">Author</span>
+    <p-dropdown
+      [options]="authorList"
+      [(ngModel)]="selectedAuthor"
+      optionLabel="name"
+      [filter]="true"
+      filterBy="name"
+      [showClear]="true"
+      placeholder="Select an author"
+      [style]="{ width: '300px' }"
+    >
+      <ng-template pTemplate="selectedItem" let-selectedOption>
+        <div class="flex align-items-center gap-2">
+          <div>{{ selectedAuthor.name }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-author pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <div>{{ author.name }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+    <div>
+      <p-button
+        label="Add New Author"
+        (onClick)="showCreateNewAuthorModal()"
+      ></p-button>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between w-[400px]">
+    <span class="text-sm">Secret</span>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="uploaderSecret"
+      [style]="{ width: '300px' }"
+    />
+  </div>
+
+  <div *ngIf="loading" class="card flex justify-content-center">
+    <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+  </div>
+
+  <div *ngIf="selectedFile" class="image-preview">
+    <img [src]="selectedFileDate" alt="Selected Image" />
+  </div>
+</div>
+
+<p-dialog
+  header="Create New Category"
+  [(visible)]="createNewCategoryModalOpen"
+  [style]="{ width: '50vw' }"
+>
+  <div class="flex justify-between">
+    <input type="text" pInputText [(ngModel)]="newCategory" />
+    <p-button label="Save" (onClick)="onSaveNewCategory()"></p-button>
+  </div>
+</p-dialog>
+
+<p-dialog
+  header="Create New Author"
+  [(visible)]="createNewAuthorModalOpen"
+  [style]="{ width: '50vw' }"
+>
+  <div class="flex justify-between">
+    <input type="text" pInputText [(ngModel)]="newAuthor" />
+    <p-button label="Save" (onClick)="onSaveNewAuthor()"></p-button>
+  </div>
+</p-dialog>
+
+<app-loader [show]="loading"></app-loader>

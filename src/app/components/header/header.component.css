@@ -1,3 +1,6 @@
+header-container {
+  max-height: 15vh;
+}
 .main-header {
   background-color: #d33a2c;
   display: grid;
@@ -30,6 +33,12 @@
 
 .sub-nav-list > li:hover {
   border: 1px solid #ee857b;
+}
+
+.sub-nav-list > li.selected {
+  background-color: #ffcccc;
+  color: #ff0000;
+  border: 1px solid #ff6666;
 }
 
 .main-nav-list > li {

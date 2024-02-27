@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +8,24 @@ import { firstValueFrom } from 'rxjs';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  categoryList = [
+    'Love',
+    'Religion',
+    'Job',
+    'Family',
+    'Friends',
+    'Marriage',
+    'Others',
+  ];
+  selectedCategory: string | null = null;
   imageUrl = 'assets/search.svg';
   isMoreButtonClicked = false;
-  private baseUrl: string = 'https://mq-frontend.vercel.app';
+  private baseUrl: string = 'http://3.108.190.91'; // EC2 public ip address
   constructor(
     private router: Router,
-    private http: HttpClient // private http: HttpClient
-  ) {
-    //this.baseUrl = this.getBaseUrl();
-  }
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   navigateToHomePage() {
     this.router.navigate(['/']);
@@ -31,20 +39,9 @@ export class HeaderComponent {
     this.isMoreButtonClicked = !this.isMoreButtonClicked;
   }
 
-  async callApi() {
-    const x = await firstValueFrom(
-      this.http.get<any>(`${this.baseUrl}/api/hello`, {})
-    );
-    console.log(x);
+  onCategorySelect(category: string) {
+    this.selectedCategory = category;
+    this.router.navigate([`/quote/${category}`]);
+    this.cdr.detectChanges();
   }
-
-  // private getBaseUrl(): string {
-  //   // Return different base URLs based on the environment
-  //   console.log(window.location.hostname);
-  //   if (window.location.hostname === 'mq-frontend.vercel.app') {
-  //     return 'https://mq-frontend.vercel.app'; // Change this to your actual API domain
-  //   } else {
-  //     return 'http://localhost:4000'; // Default base URL for local development
-  //   }
-  // }
 }

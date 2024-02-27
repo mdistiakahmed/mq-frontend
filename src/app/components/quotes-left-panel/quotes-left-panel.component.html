@@ -1,0 +1,62 @@
+<!-- Desktop view-->
+<div class="desktop-view">
+  <p-scrollPanel [style]="{ width: '70vw', height: '75vh', padding: '10px' }">
+    <div class="grid grid-cols-2 gap-4">
+      <div *ngFor="let row of quotes">
+        <p-card [style]="{ width: '400px' }">
+          <img
+            alt="Card"
+            src="{{ row.image_url }}"
+            style="width: 400px; height: 200px"
+          />
+          <ng-template pTemplate="footer">
+            <div class="flex items-center justify-center">
+              <mat-icon>sentiment_very_satisfied</mat-icon> 1.2K
+              <mat-icon>near_me</mat-icon> 1.2K
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </div>
+    <div>
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [first]="skip"
+        [rows]="limit"
+        [totalRecords]="totalItems"
+      ></p-paginator>
+    </div>
+  </p-scrollPanel>
+</div>
+
+<!-- Mobile view-->
+
+<div class="mobile-view">
+  <div class="flex flex-col gap-4">
+    <div *ngFor="let row of quotes">
+      <p-card [style]="{ width: '350px' }">
+        <img
+          alt="Card"
+          src="{{ row.image_url }}"
+          style="width: 350px; height: 200px"
+        />
+        <ng-template pTemplate="footer">
+          <div class="flex items-center justify-center">
+            <mat-icon>sentiment_very_satisfied</mat-icon> 1.2K
+            <mat-icon>near_me</mat-icon> 1.2K
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+  <div>
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [first]="skip"
+      [rows]="limit"
+      [totalRecords]="totalItems"
+    ></p-paginator>
+  </div>
+</div>
+
+<app-loader [show]="loading"></app-loader>

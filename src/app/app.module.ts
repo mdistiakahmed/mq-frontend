@@ -17,12 +17,41 @@ import { HomeComponent } from './pages/home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { UploadComponent } from './pages/upload/upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { PaginatorModule } from 'primeng/paginator';
+import { QuotesLeftPanelComponent } from './components/quotes-left-panel/quotes-left-panel.component';
+import { QuotesRightPanelComponent } from './components/quotes-right-panel/quotes-right-panel.component';
+import { CardModule } from 'primeng/card';
+import { LoaderComponent } from './components/loader/loader.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AdminComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    AdminComponent,
+    HomeComponent,
+    UploadComponent,
+    QuotesLeftPanelComponent,
+    QuotesRightPanelComponent,
+    LoaderComponent,
+    CategoryPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
@@ -30,8 +59,18 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatMenuModule,
     HttpClientModule,
+    FileUploadModule,
+    ToastModule,
+    DropdownModule,
+    ProgressSpinnerModule,
+    InputTextModule,
+    ButtonModule,
+    DialogModule,
+    ScrollPanelModule,
+    PaginatorModule,
+    CardModule,
   ],
-  providers: [DatePipe, provideClientHydration()],
+  providers: [DatePipe, provideClientHydration(), MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -10,12 +10,11 @@ import { QuoteService } from '../../services/quote.service';
 export class CategoryPageComponent {
   category!: any;
 
-  constructor(private route: ActivatedRoute, private cdr: ChangeDetectorRef) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.category = params.get('category');
-      this.cdr.detectChanges();
     });
   }
 }

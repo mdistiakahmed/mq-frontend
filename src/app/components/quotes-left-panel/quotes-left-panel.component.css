@@ -7,6 +7,11 @@
   padding: 1.15rem;
 }
 
+.author-name {
+  cursor: pointer;
+  font-family: cursive;
+}
+
 @media (max-width: 767px) {
   .desktop-view {
     display: none;

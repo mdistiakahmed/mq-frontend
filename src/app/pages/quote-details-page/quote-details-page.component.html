@@ -1,0 +1,57 @@
+<div class="flex p-10">
+  <div class="left-section">
+    <p-card [style]="{ width: '400px' }">
+      <img
+        alt="Card"
+        src="{{ quoteDetails?.image_url }}"
+        style="width: 400px; height: 200px"
+      />
+      <ng-template pTemplate="footer">
+        <div class="flex justify-between">
+          <div>
+            <p class="author-name">{{ quoteDetails?.author }}</p>
+          </div>
+
+          <div class="flex items-center justify-center gap-4">
+            <i
+              class="pi pi-heart"
+              style="color: red; font-size: 1rem; cursor: pointer"
+              pTooltip="Like"
+              tooltipPosition="bottom"
+              >1.2K</i
+            >
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+
+  <div class="right-section">
+    <h3 class="similar-quotes-header">Similar Quotes</h3>
+    <p-scrollPanel [style]="{ width: '25vw', height: '50vh' }">
+      <div class="flex flex-col items-center justify-center gap-5">
+        <p-card
+          [style]="{ width: '200px' }"
+          *ngFor="let item of dummyArray; let i = index"
+        >
+          <img
+            alt="Card"
+            src="{{ quoteDetails?.image_url }}"
+            style="width: 200px; height: 100px"
+          />
+          <ng-template pTemplate="footer">
+            <div class="flex justify-between">
+              <div>
+                <p>{{ quoteDetails?.author }}</p>
+              </div>
+
+              <div class="flex items-center justify-center gap-4">
+                <i class="pi pi-heart">1.2K</i>
+              </div>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    </p-scrollPanel>
+  </div>
+</div>

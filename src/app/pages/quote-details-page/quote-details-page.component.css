@@ -1,0 +1,19 @@
+.left-section {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.similar-quotes-header {
+  font-family: "Dancing Script", cursive;
+  font-size: 24px;
+  color: red;
+}

@@ -10,9 +10,29 @@
             style="width: 400px; height: 200px"
           />
           <ng-template pTemplate="footer">
-            <div class="flex items-center justify-center">
-              <mat-icon>sentiment_very_satisfied</mat-icon> 1.2K
-              <mat-icon>near_me</mat-icon> 1.2K
+            <div class="flex justify-between">
+              <div>
+                <p class="author-name">{{ row.author }}</p>
+              </div>
+
+              <div class="flex items-center justify-center gap-4">
+                <i
+                  class="pi pi-heart"
+                  style="color: red; font-size: 1rem; cursor: pointer"
+                  (click)="onShareClick(row.quote_id)"
+                  pTooltip="Like"
+                  tooltipPosition="bottom"
+                  >1.2K</i
+                >
+                <i
+                  class="pi pi-send"
+                  style="color: green; font-size: 1rem; cursor: pointer"
+                  (click)="onShareClick(row.quote_id)"
+                  pTooltip="Share"
+                  tooltipPosition="bottom"
+                  >1.2K</i
+                >
+              </div>
             </div>
           </ng-template>
         </p-card>
@@ -35,15 +55,37 @@
   <div class="flex flex-col gap-4">
     <div *ngFor="let row of quotes">
       <p-card [style]="{ width: '350px' }">
+        1.2K
         <img
           alt="Card"
           src="{{ row.image_url }}"
           style="width: 350px; height: 200px"
         />
+
         <ng-template pTemplate="footer">
-          <div class="flex items-center justify-center">
-            <mat-icon>sentiment_very_satisfied</mat-icon> 1.2K
-            <mat-icon>near_me</mat-icon> 1.2K
+          <div class="flex justify-between">
+            <div>
+              <p class="author-name">{{ row.author }}</p>
+            </div>
+
+            <div lass="flex items-center justify-center gap-4">
+              <i
+                class="pi pi-heart"
+                style="color: red; font-size: 1rem; cursor: pointer"
+                (click)="onShareClick(row.quote_id)"
+                pTooltip="Like"
+                tooltipPosition="bottom"
+                >1.2K</i
+              >
+              <i
+                class="pi pi-send"
+                style="color: green; font-size: 1rem; cursor: pointer"
+                (click)="onShareClick(row.quote_id)"
+                pTooltip="Share"
+                tooltipPosition="bottom"
+                >1.2K</i
+              >
+            </div>
           </div>
         </ng-template>
       </p-card>

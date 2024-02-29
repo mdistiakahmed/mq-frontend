@@ -4,6 +4,7 @@
 
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
 html,
 body {
@@ -36,4 +37,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .p-card .p-card-body {
   padding-bottom: 0.25rem;
+}
+
+.p-dropdown-label {
+  white-space: pre-wrap;
 }

@@ -21,11 +21,7 @@ export class HeaderComponent {
   imageUrl = 'assets/search.svg';
   isMoreButtonClicked = false;
   private baseUrl: string = 'http://3.108.190.91'; // EC2 public ip address
-  constructor(
-    private router: Router,
-    private http: HttpClient,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private router: Router) {}
 
   navigateToHomePage() {
     this.router.navigate(['/']);
@@ -42,6 +38,5 @@ export class HeaderComponent {
   onCategorySelect(category: string) {
     this.selectedCategory = category;
     this.router.navigate([`/quote/${category}`]);
-    this.cdr.detectChanges();
   }
 }

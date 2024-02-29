@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
+  Meta,
 } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +35,8 @@ import { QuotesRightPanelComponent } from './components/quotes-right-panel/quote
 import { CardModule } from 'primeng/card';
 import { LoaderComponent } from './components/loader/loader.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { QuoteDetailsPageComponent } from './pages/quote-details-page/quote-details-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
     QuotesRightPanelComponent,
     LoaderComponent,
     CategoryPageComponent,
+    QuoteDetailsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,8 +73,9 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
     ScrollPanelModule,
     PaginatorModule,
     CardModule,
+    TooltipModule,
   ],
-  providers: [DatePipe, provideClientHydration(), MessageService],
+  providers: [DatePipe, provideClientHydration(), MessageService, Meta],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

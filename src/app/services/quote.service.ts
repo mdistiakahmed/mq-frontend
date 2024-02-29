@@ -20,4 +20,9 @@ export class QuoteService {
     }
     return firstValueFrom(this.http.get<any>(url, this.httpOptions));
   }
+
+  getQuoteById(quoteId: string): Promise<any> {
+    let url = `${this.projectUrl}/quotes/${quoteId}`;
+    return firstValueFrom(this.http.get<any>(url, this.httpOptions));
+  }
 }
